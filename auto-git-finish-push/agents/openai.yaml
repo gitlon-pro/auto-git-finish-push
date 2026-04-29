@@ -1,0 +1,4 @@
+interface:
+  display_name: "Auto Git Finish Push"
+  short_description: "Safely commit and push task-owned Git changes"
+  default_prompt: "Use $auto-git-finish-push to safely commit and push the current task changes."
