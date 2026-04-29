@@ -94,7 +94,3 @@ The skill does not commit or push when:
 - task-owned files cannot be separated from pre-existing user changes;
 - no upstream exists and project rules do not allow `git push -u origin HEAD`;
 - push would require force.
-
-## License
-
-Add your preferred license before publishing if you want others to reuse or modify the skill clearly.

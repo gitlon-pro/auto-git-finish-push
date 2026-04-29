@@ -144,7 +144,3 @@ Verification:
 - GitHub 仓库描述；
 - 示例截图或一段真实使用示例；
 - 如果 fork 到其他账号，把安装命令里的 `gitlon-pro` 改成你的 GitHub 用户名或组织名。
-
-## License
-
-发布前请添加你选择的开源协议。
