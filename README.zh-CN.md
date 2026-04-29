@@ -1,6 +1,8 @@
 # Auto Git Finish Push
 
-一个用于 Codex 的 Git 收尾 skill。
+一个用于 AI 编程助手 / AI 编辑器的 Git 收尾 skill。
+
+Codex 可以直接按 skill 安装；其他支持 skills、rules、instructions 或项目规则的 AI 编辑器，也可以复用同一套指令。
 
 它适合在一次代码或文档任务完成后，自动检查当前 Git 状态、暂存本次任务产生的变更、根据 staged diff 生成提交信息、创建 commit，并执行普通 push。
 
@@ -8,41 +10,37 @@
 
 ## 安装
 
-通过 [skills.sh](https://skills.sh/) 安装：
+通过 [skills.sh](https://skills.sh/) 安装时，仓库地址只需要填根地址：
 
 ```sh
-npx skills add https://github.com/5046312/auto-git-finish-push/tree/main/auto-git-finish-push -a codex -g -y
+npx skills add https://github.com/5046312/auto-git-finish-push -a codex -g -y
 ```
 
-通过 Codex skill installer 从 GitHub 安装：
-
-```sh
-install-skill-from-github.py --repo 5046312/auto-git-finish-push --path auto-git-finish-push
-```
-
-也可以直接使用 GitHub tree URL：
-
-```sh
-install-skill-from-github.py --url https://github.com/5046312/auto-git-finish-push/tree/main/auto-git-finish-push
-```
+上面命令以 Codex 为例。如果使用其他 AI 编辑器，把 `-a codex` 换成该工具在 `skills.sh` 中对应的 agent 名称即可，仓库地址不需要追加子目录。
 
 如果你的 Codex 环境支持 `skill-installer`，也可以直接让 Codex 安装：
 
 ```text
-Use $skill-installer to install https://github.com/5046312/auto-git-finish-push/tree/main/auto-git-finish-push
+Use $skill-installer to install https://github.com/5046312/auto-git-finish-push
 ```
 
-安装后重启 Codex，让新 skill 生效。
+安装后重启对应的 AI 编辑器或会话，让新 skill / 规则生效。
 
 ## 使用方式
 
-一次性显式使用：
+一次性显式使用。适用于 Codex 或其他支持 `$skill-name` 触发方式的环境：
 
 ```text
 Use $auto-git-finish-push to commit and push this task.
 ```
 
-如果希望某个项目每次任务结束后都自动触发，可以把下面内容加入项目的 `AGENTS.md`：
+如果你的 AI 编辑器不支持 `$auto-git-finish-push` 这种触发方式，可以让它直接读取并遵守本仓库里的 `auto-git-finish-push/SKILL.md`：
+
+```text
+Before the final response, follow auto-git-finish-push/SKILL.md to safely stage, commit, and push only the current task changes.
+```
+
+如果希望某个项目每次任务结束后都自动触发，可以把下面内容加入项目规则文件。Codex 可以放在 `AGENTS.md`；其他 AI 编辑器放到它对应的 rules、instructions 或 project rules 文件中：
 
 ```text
 At the end of every coding or documentation task, before the final response, use $auto-git-finish-push to safely stage, commit, and push task-owned changes.
@@ -52,7 +50,7 @@ At the end of every coding or documentation task, before the final response, use
 
 ## 手动安装
 
-如果不使用 installer，也可以手动复制 skill 目录：
+如果不使用 installer，也可以手动复制 skill 目录。Codex 示例：
 
 ```sh
 git clone https://github.com/5046312/auto-git-finish-push.git
@@ -60,7 +58,9 @@ mkdir -p ~/.codex/skills
 cp -R auto-git-finish-push/auto-git-finish-push ~/.codex/skills/auto-git-finish-push
 ```
 
-复制完成后重启 Codex。
+其他 AI 编辑器可以把 `auto-git-finish-push/SKILL.md` 放到该工具支持的全局规则、项目规则或自定义 skill 目录中；如果工具不能直接安装 skill，也可以在项目规则中引用这份文件。
+
+复制完成后重启对应的 AI 编辑器或会话。
 
 ## 目录结构
 
@@ -124,7 +124,7 @@ Verification:
 
 ## 适合谁
 
-适合希望 Codex 在完成任务后自动做 Git 收尾的人：
+适合希望 AI 编程助手在完成任务后自动做 Git 收尾的人：
 
 - 不想每次手动整理 `git add` / `commit` / `push`；
 - 但又不希望 AI 把不属于本次任务的脏文件一起提交；

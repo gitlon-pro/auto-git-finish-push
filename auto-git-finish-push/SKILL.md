@@ -1,6 +1,6 @@
 ---
 name: auto-git-finish-push
-description: Automatically finish a completed coding or documentation task by checking Git safety gates, staging only task-owned changes, generating a commit message from the staged diff, committing, and pushing. Use when the user asks Codex to auto git add, commit, and push at task completion, or when project instructions require automatic finish-and-push behavior. Must fail closed on unsafe branches, dirty baselines, sensitive files, missing remotes, merge conflicts, or unclear change ownership.
+description: Automatically finish a completed coding or documentation task by checking Git safety gates, staging only task-owned changes, generating a commit message from the staged diff, committing, and pushing. Use when the user asks an AI coding assistant to auto git add, commit, and push at task completion, or when project instructions require automatic finish-and-push behavior. Must fail closed on unsafe branches, dirty baselines, sensitive files, missing remotes, merge conflicts, or unclear change ownership.
 ---
 
 # Auto Git Finish Push
