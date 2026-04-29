@@ -8,6 +8,12 @@
 
 ## 安装
 
+通过 [skills.sh](https://skills.sh/) 安装：
+
+```sh
+npx skills add https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push -a codex -g -y
+```
+
 通过 Codex skill installer 从 GitHub 安装：
 
 ```sh

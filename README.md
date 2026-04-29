@@ -8,6 +8,12 @@ The skill is intentionally conservative. It stops instead of committing when bra
 
 ## Install
 
+Install with [skills.sh](https://skills.sh/):
+
+```sh
+npx skills add https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push -a codex -g -y
+```
+
 Install from GitHub with the Codex skill installer:
 
 ```sh
