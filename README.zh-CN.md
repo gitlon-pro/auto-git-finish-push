@@ -11,25 +11,25 @@
 通过 [skills.sh](https://skills.sh/) 安装：
 
 ```sh
-npx skills add https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push -a codex -g -y
+npx skills add https://github.com/5046312/auto-git-finish-push/tree/main/auto-git-finish-push -a codex -g -y
 ```
 
 通过 Codex skill installer 从 GitHub 安装：
 
 ```sh
-install-skill-from-github.py --repo gitlon-pro/auto-git-finish-push --path auto-git-finish-push
+install-skill-from-github.py --repo 5046312/auto-git-finish-push --path auto-git-finish-push
 ```
 
 也可以直接使用 GitHub tree URL：
 
 ```sh
-install-skill-from-github.py --url https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push
+install-skill-from-github.py --url https://github.com/5046312/auto-git-finish-push/tree/main/auto-git-finish-push
 ```
 
 如果你的 Codex 环境支持 `skill-installer`，也可以直接让 Codex 安装：
 
 ```text
-Use $skill-installer to install https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push
+Use $skill-installer to install https://github.com/5046312/auto-git-finish-push/tree/main/auto-git-finish-push
 ```
 
 安装后重启 Codex，让新 skill 生效。
@@ -55,7 +55,7 @@ At the end of every coding or documentation task, before the final response, use
 如果不使用 installer，也可以手动复制 skill 目录：
 
 ```sh
-git clone https://github.com/gitlon-pro/auto-git-finish-push.git
+git clone https://github.com/5046312/auto-git-finish-push.git
 mkdir -p ~/.codex/skills
 cp -R auto-git-finish-push/auto-git-finish-push ~/.codex/skills/auto-git-finish-push
 ```
@@ -135,12 +135,3 @@ Verification:
 这个 skill 偏保守。
 
 它不会追求“任何情况下都自动推上去”，而是优先保护仓库状态。对于多人协作、长期脏工作区、敏感配置较多的项目，这种策略更安全。
-
-## 发布前建议
-
-如果你要 fork 或重新发布这个仓库，建议补充：
-
-- `LICENSE`：推荐 MIT，方便别人明确复用；
-- GitHub 仓库描述；
-- 示例截图或一段真实使用示例；
-- 如果 fork 到其他账号，把安装命令里的 `gitlon-pro` 改成你的 GitHub 用户名或组织名。

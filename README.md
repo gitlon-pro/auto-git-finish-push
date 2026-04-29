@@ -11,25 +11,25 @@ The skill is intentionally conservative. It stops instead of committing when bra
 Install with [skills.sh](https://skills.sh/):
 
 ```sh
-npx skills add https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push -a codex -g -y
+npx skills add https://github.com/5046312/auto-git-finish-push/tree/main/auto-git-finish-push -a codex -g -y
 ```
 
 Install from GitHub with the Codex skill installer:
 
 ```sh
-install-skill-from-github.py --repo gitlon-pro/auto-git-finish-push --path auto-git-finish-push
+install-skill-from-github.py --repo 5046312/auto-git-finish-push --path auto-git-finish-push
 ```
 
 You can also install from the GitHub tree URL:
 
 ```sh
-install-skill-from-github.py --url https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push
+install-skill-from-github.py --url https://github.com/5046312/auto-git-finish-push/tree/main/auto-git-finish-push
 ```
 
 If your Codex environment exposes the `skill-installer` skill, you can ask Codex:
 
 ```text
-Use $skill-installer to install https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push
+Use $skill-installer to install https://github.com/5046312/auto-git-finish-push/tree/main/auto-git-finish-push
 ```
 
 Restart Codex after installation so the skill can be discovered.
@@ -55,7 +55,7 @@ The skill will inspect Git state first. If the repository is on a protected bran
 If you do not use the installer, copy the skill folder into your Codex skills directory:
 
 ```sh
-git clone https://github.com/gitlon-pro/auto-git-finish-push.git
+git clone https://github.com/5046312/auto-git-finish-push.git
 mkdir -p ~/.codex/skills
 cp -R auto-git-finish-push/auto-git-finish-push ~/.codex/skills/auto-git-finish-push
 ```
