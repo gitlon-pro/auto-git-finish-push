@@ -11,12 +11,50 @@
 通过 Codex skill installer 从 GitHub 安装：
 
 ```sh
-install-skill-from-github.py --repo <owner>/auto-git-finish-push --path auto-git-finish-push
+install-skill-from-github.py --repo gitlon-pro/auto-git-finish-push --path auto-git-finish-push
 ```
 
-把 `<owner>` 替换成你的 GitHub 用户名或组织名。
+也可以直接使用 GitHub tree URL：
+
+```sh
+install-skill-from-github.py --url https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push
+```
+
+如果你的 Codex 环境支持 `skill-installer`，也可以直接让 Codex 安装：
+
+```text
+Use $skill-installer to install https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push
+```
 
 安装后重启 Codex，让新 skill 生效。
+
+## 使用方式
+
+一次性显式使用：
+
+```text
+Use $auto-git-finish-push to commit and push this task.
+```
+
+如果希望某个项目每次任务结束后都自动触发，可以把下面内容加入项目的 `AGENTS.md`：
+
+```text
+At the end of every coding or documentation task, before the final response, use $auto-git-finish-push to safely stage, commit, and push task-owned changes.
+```
+
+执行时它会先检查 Git 状态。只要发现保护分支、任务外脏文件、敏感文件、冲突状态、远端不可安全推送等问题，就会停止并报告原因，不会强行提交。
+
+## 手动安装
+
+如果不使用 installer，也可以手动复制 skill 目录：
+
+```sh
+git clone https://github.com/gitlon-pro/auto-git-finish-push.git
+mkdir -p ~/.codex/skills
+cp -R auto-git-finish-push/auto-git-finish-push ~/.codex/skills/auto-git-finish-push
+```
+
+复制完成后重启 Codex。
 
 ## 目录结构
 
@@ -99,7 +137,7 @@ Verification:
 - `LICENSE`：推荐 MIT，方便别人明确复用；
 - GitHub 仓库描述；
 - 示例截图或一段真实使用示例；
-- 把安装命令里的 `<owner>` 改成实际 GitHub 用户名或组织名。
+- 如果 fork 到其他账号，把安装命令里的 `gitlon-pro` 改成你的 GitHub 用户名或组织名。
 
 ## License
 

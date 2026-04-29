@@ -11,12 +11,50 @@ The skill is intentionally conservative. It stops instead of committing when bra
 Install from GitHub with the Codex skill installer:
 
 ```sh
-install-skill-from-github.py --repo <owner>/auto-git-finish-push --path auto-git-finish-push
+install-skill-from-github.py --repo gitlon-pro/auto-git-finish-push --path auto-git-finish-push
 ```
 
-Replace `<owner>` with the GitHub account or organization that hosts this repository.
+You can also install from the GitHub tree URL:
+
+```sh
+install-skill-from-github.py --url https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push
+```
+
+If your Codex environment exposes the `skill-installer` skill, you can ask Codex:
+
+```text
+Use $skill-installer to install https://github.com/gitlon-pro/auto-git-finish-push/tree/main/auto-git-finish-push
+```
 
 Restart Codex after installation so the skill can be discovered.
+
+## Usage
+
+Use it explicitly at the end of a task:
+
+```text
+Use $auto-git-finish-push to commit and push this task.
+```
+
+Or add it to your project instructions, for example in `AGENTS.md`:
+
+```text
+At the end of every coding or documentation task, before the final response, use $auto-git-finish-push to safely stage, commit, and push task-owned changes.
+```
+
+The skill will inspect Git state first. If the repository is on a protected branch, has unclear pre-existing changes, contains sensitive files, or cannot push safely, it will stop and report the blocker instead of committing.
+
+## Manual Install
+
+If you do not use the installer, copy the skill folder into your Codex skills directory:
+
+```sh
+git clone https://github.com/gitlon-pro/auto-git-finish-push.git
+mkdir -p ~/.codex/skills
+cp -R auto-git-finish-push/auto-git-finish-push ~/.codex/skills/auto-git-finish-push
+```
+
+Then restart Codex.
 
 ## Skill Path
 
